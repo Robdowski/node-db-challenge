@@ -6,4 +6,13 @@ const helmet = require('helmet')
 server.use(helmet())
 server.use(express.json())
 
+const projectRouter = require('./routers/projectRouter')
+server.use('/api/projects', projectRouter)
+
+const taskRouter = require('./routers/taskRouter')
+server.use('/api/tasks', taskRouter)
+
+const resourceRouter = require('./routers/resourceRouter')
+server.use('/api/resource', resourceRouter)
+
 module.exports = server
