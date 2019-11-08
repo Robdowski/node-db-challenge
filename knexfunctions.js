@@ -2,31 +2,31 @@ const knex = require('./data/dbconfig')
 
 
 const addProject = (data) => {
-    knex('project')
+   return knex('project')
     .insert(data)
 }
 
 const getProjects = () => {
-    knex.select('*').from('projects')
+   return knex.select('*').from('project')
 }
 
 const addResource = data => {
-    knex('resource')
+    return knex('resource')
     .insert(data)
 }
 
 const getResources = () => {
-    knex.select('*').from('resources')
+    return knex.select('*').from('resource')
 }
 
 const addTask = data => {
-    knex('task').insert(data)
+   return knex('task').insert(data)
 }
 
 const getTasks = () => {
-    knex('task')
-    .join('project', 'task.project_id', '=', 'project.id')
-    .select('task.*', 'project.name', 'project.description')
+   return knex('task')
+    .join('project', 'project.id', '=', 'task.project_id')
+    .select('task.*', 'project.name', 'project.description as desc')
 }
 
 

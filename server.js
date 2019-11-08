@@ -13,6 +13,6 @@ const taskRouter = require('./routers/taskRouter')
 server.use('/api/tasks', taskRouter)
 
 const resourceRouter = require('./routers/resourceRouter')
-server.use('/api/resource', resourceRouter)
+server.use('/api/resources', resourceRouter)
 
 module.exports = server

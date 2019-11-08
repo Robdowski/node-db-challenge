@@ -4,7 +4,12 @@ const db = require('../knexfunctions')
 router.get('/', (req, res) => {
     db.getProjects()
     .then(projects => {
-        res.status(200).json(projects)
+        if(projects){
+            res.status(200).json(projects)
+        } else {
+            res.status(404).json({Error: "Nothing was able to be returned."})
+        }
+        
     })
     .catch(err => {
         console.log(err)
